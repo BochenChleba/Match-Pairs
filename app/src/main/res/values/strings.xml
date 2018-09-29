@@ -1,0 +1,54 @@
+<resources>
+    <string name="app_name">Matches</string>
+
+    <string name="toolbar_reset">Reset</string>
+    <string name="toolbar_sound">Sound</string>
+    <string name="toolbar_info">Credits</string>
+
+    <string name="layout_0_tv">Error occurred\nTry again</string>
+    <string name="layout_0_btn">Back</string>
+
+    <string name="error_inflating_layout">Error during inflating layout: </string>
+
+    <string name="win_dialog_title">Victory !</string>
+    <string name="win_dialog_time">Time: %1$.2f sek</string>
+    <string name="win_dialog_attempts">Clicks: %1$d</string>
+    <string name="win_dialog_fields">Fields: %1$d</string>
+    <string name="win_dialog_score">Score: %1$d</string>
+    <string name="win_dialog_highscore">High Score: %1$d</string>
+    <string name="win_dialog_reset_btn">Try Again</string>
+    <string name="win_dialog_return_btn">Return</string>
+    <string name="win_dialog_back_btn">Back to Menu</string>
+
+    <string name="reset_dialog_message">Do you want to start a new game?</string>
+    <string name="reset_dialog_positive">Yes</string>
+    <string name="reset_dialog_negative">No</string>
+    <string name="reset_dialog_title">Restart</string>
+
+    <string name="info_dialog_negative">Return</string>
+    <string name="info_dialog_message">
+
+        \tImages used in this application are downloaded from <a href="https://www.flaticon.com">
+        Flaticon</a>.\n
+        Animals and Nature pictures sets are designed by user <a href="https://www.flaticon.com/authors/freepik">
+        Freepik</a>.\n
+        Weather pictures set is designed by user <a href="https://www.flaticon.com/authors/wissawa-khamsriwath">Wissawa Khamsriwath</a>.\n
+        Letter icons are designed by user <a href="https://www.flaticon.com/authors/twitter">
+        Twitter</a> and are under <a href="https://creativecommons.org/licenses/by/3.0/">
+        CC 3.0 BY license</a>.\n
+        Music used in the game is created by Alexander from <a href="http://www.orangefreesounds.com">
+        Orange Free Sounds</a> and is under <a href="https://creativecommons.org/licenses/by/4.0/">
+        CC 4.0 BY license</a>.\n
+        <b>Please support these designers.</b>
+    </string>
+
+    <string name="toolbar_tv_time">Time: %1$.2f</string>
+    <string name="toolbar_tv_matches">Matches: %1$d</string>
+
+    <string name="main_menu_btn_start">Start Game</string>
+    <string name="main_menu_tv_imgsset">Images Set: </string>
+    <string name="main_menu_tv_fieldcount">Fields: </string>
+
+    <string name="admob_id">ca-app-pub-6768395652817207~9476125885</string>
+
+</resources>

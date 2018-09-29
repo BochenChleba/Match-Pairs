@@ -1,0 +1,52 @@
+<resources>
+    <string name="app_name">Pary</string>
+
+    <string name="toolbar_reset">Reset</string>
+    <string name="toolbar_sound">Głos</string>
+    <string name="toolbar_info">Informacja</string>
+
+    <string name="layout_0_tv">Wystąpił błąd\nSpróbuj ponownie</string>
+    <string name="layout_0_btn">Powrót</string>
+
+    <string name="error_inflating_layout">Błąd przy wzoszeniu rozkładu: </string>
+
+    <string name="win_dialog_title">Zwycięstwo !</string>
+    <string name="win_dialog_time">Czas: %1$.2f sek</string>
+    <string name="win_dialog_attempts">Kliknięcia: %1$d</string>
+    <string name="win_dialog_fields">Ilość pól: %1$d</string>
+    <string name="win_dialog_score">Wynik: %1$d</string>
+    <string name="win_dialog_highscore">Najlepszy wynik: %1$d</string>
+    <string name="win_dialog_reset_btn">Jeszcze raz</string>
+    <string name="win_dialog_return_btn">Powrót</string>
+    <string name="win_dialog_back_btn">Powrót do menu</string>
+
+    <string name="reset_dialog_message">Czy chcesz zacząć od nowa?</string>
+    <string name="reset_dialog_positive">Tak</string>
+    <string name="reset_dialog_negative">Nie</string>
+    <string name="reset_dialog_title">Restart</string>
+
+    <string name="info_dialog_negative">Powrót</string>
+    <string name="info_dialog_message">
+        \tObrazy użyte w tej aplikacji zostały pobrane ze strony: <a href="https://www.flaticon.com">Flaticon</a>.\n
+        Zestawy obrazków zwierzęta i natura zostały wykonane przez użytkownika
+        <a href="https://www.flaticon.com/authors/freepik">Freepik</a>.\n
+        Zestaw obrazków pogoda został wykonany przez użytkownika
+        <a href="https://www.flaticon.com/authors/wissawa-khamsriwath">Wissawa Khamsriwath</a>.\n
+        Zestaw obrazków literki został wykonany przez użytkownika
+        <a href="https://www.flaticon.com/authors/twitter">Twitter</a> i podlega <a href="https://creativecommons.org/licenses/by/3.0/">
+        licencji CC 3.0 BY</a>.\n
+        Muzyka użyta w grze została stworzona przez Alexandra z <a href="http://www.orangefreesounds.com">
+        Orange Free Sounds</a> i podlega <a href="https://creativecommons.org/licenses/by/4.0/">
+        licencji CC 4.0 BY</a>.\n
+        <b>Zachęcam do wsparcia tych twórców.</b>
+    </string>
+
+    <string name="toolbar_tv_time">Czas: %1$.2f</string>
+    <string name="toolbar_tv_matches">Pary: %1$d</string>
+
+    <string name="main_menu_btn_start">Zacznij grę</string>
+    <string name="main_menu_tv_imgsset">Zestaw obrazków: </string>
+    <string name="main_menu_tv_fieldcount">Ilość pól: </string>
+
+    <string name="admob_id">ca-app-pub-6768395652817207~9476125885</string>
+</resources>

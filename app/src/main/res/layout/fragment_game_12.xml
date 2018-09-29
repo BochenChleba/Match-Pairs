@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<HorizontalScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.bochenchleba.match.fragments.MainActivity"
+    android:id="@+id/hsv"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/blue_background"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:id="@+id/main_linear_layout"
+        >
+
+        <LinearLayout
+            android:id="@+id/line1_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center_vertical"
+            >
+
+            <com.bochenchleba.match.MatchView
+                android:layout_width="@dimen/game_match_view_size_big"
+                android:layout_height="@dimen/game_match_view_size_big"
+                android:background="@color/blue_background" android:scaleType="fitCenter"
+                android:layout_margin="@dimen/game_match_view_margin"
+                />
+
+            <com.bochenchleba.match.MatchView
+                android:layout_margin="@dimen/game_match_view_margin"
+                android:layout_width="@dimen/game_match_view_size_big"
+                android:layout_height="@dimen/game_match_view_size_big"
+                android:background="@color/blue_background" android:scaleType="fitCenter"
+
+                />
+
+            <com.bochenchleba.match.MatchView
+                android:layout_width="@dimen/game_match_view_size_big"
+                android:layout_height="@dimen/game_match_view_size_big"
+                android:layout_margin="@dimen/game_match_view_margin"
+                android:background="@color/blue_background" android:scaleType="fitCenter"
+                />
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center_vertical"
+            >
+
+            <com.bochenchleba.match.MatchView
+                android:layout_width="@dimen/game_match_view_size_big"
+                android:layout_height="@dimen/game_match_view_size_big"
+                android:background="@color/blue_background" android:scaleType="fitCenter"
+                android:layout_margin="@dimen/game_match_view_margin"
+                />
+
+            <com.bochenchleba.match.MatchView
+                android:layout_margin="@dimen/game_match_view_margin"
+                android:layout_width="@dimen/game_match_view_size_big"
+                android:layout_height="@dimen/game_match_view_size_big"
+                android:background="@color/blue_background" android:scaleType="fitCenter"
+
+                />
+
+            <com.bochenchleba.match.MatchView
+                android:layout_width="@dimen/game_match_view_size_big"
+                android:layout_height="@dimen/game_match_view_size_big"
+                android:layout_margin="@dimen/game_match_view_margin"
+                android:background="@color/blue_background" android:scaleType="fitCenter"
+                />
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center_vertical"
+            >
+
+            <com.bochenchleba.match.MatchView
+                android:layout_width="@dimen/game_match_view_size_big"
+                android:layout_height="@dimen/game_match_view_size_big"
+                android:background="@color/blue_background" android:scaleType="fitCenter"
+                android:layout_margin="@dimen/game_match_view_margin"
+                />
+
+            <com.bochenchleba.match.MatchView
+                android:layout_margin="@dimen/game_match_view_margin"
+                android:layout_width="@dimen/game_match_view_size_big"
+                android:layout_height="@dimen/game_match_view_size_big"
+                android:background="@color/blue_background" android:scaleType="fitCenter"
+
+                />
+
+            <com.bochenchleba.match.MatchView
+                android:layout_width="@dimen/game_match_view_size_big"
+                android:layout_height="@dimen/game_match_view_size_big"
+                android:layout_margin="@dimen/game_match_view_margin"
+                android:background="@color/blue_background" android:scaleType="fitCenter"
+                />
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center_vertical"
+            >
+
+            <com.bochenchleba.match.MatchView
+                android:layout_width="@dimen/game_match_view_size_big"
+                android:layout_height="@dimen/game_match_view_size_big"
+                android:background="@color/blue_background" android:scaleType="fitCenter"
+                android:layout_margin="@dimen/game_match_view_margin"
+                />
+
+            <com.bochenchleba.match.MatchView
+                android:layout_margin="@dimen/game_match_view_margin"
+                android:layout_width="@dimen/game_match_view_size_big"
+                android:layout_height="@dimen/game_match_view_size_big"
+                android:background="@color/blue_background" android:scaleType="fitCenter"
+
+                />
+
+            <com.bochenchleba.match.MatchView
+                android:layout_width="@dimen/game_match_view_size_big"
+                android:layout_height="@dimen/game_match_view_size_big"
+                android:layout_margin="@dimen/game_match_view_margin"
+                android:background="@color/blue_background" android:scaleType="fitCenter"
+                />
+
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</HorizontalScrollView>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="images_set">
+        <item>Animals</item>
+        <item>Nature</item>
+        <item>Letters</item>
+        <item>Weather</item>
+    </string-array>
+
+
+</resources>

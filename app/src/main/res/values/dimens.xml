@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="game_match_view_size_big">78dp</dimen>
+    <dimen name="game_match_view_size_small">56dp</dimen>
+    <dimen name="game_match_view_margin">6dp</dimen>
+
+    <dimen name="win_dialog_btn_text_size">12sp</dimen>
+
+    <dimen name="main_menu_btn_margin">12dp</dimen>
+    <dimen name="main_menu_btn_padding">20dp</dimen>
+    <dimen name="btn_elevation">8dp</dimen>
+
+    <dimen name="main_menu_btn_font_size">22sp</dimen>
+    <dimen name="main_menu_hint_text_size">20sp</dimen>
+    <dimen name="main_menu_spinner_text_size">22sp</dimen>
+    <dimen name="main_menu_spinner_padding">5dp</dimen>
+    <dimen name="main_menu_spinner_margin">3dp</dimen>
+    <dimen name="main_menu_hint_margin">10dp</dimen>
+
+
+    <dimen name="match_btn_margin">6dp</dimen>
+
+
+</resources>

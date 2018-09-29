@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="game_match_view_size_big">128dp</dimen>
+    <dimen name="game_match_view_size_small">92dp</dimen>
+    <dimen name="game_match_view_margin">12dp</dimen>
+</resources>
