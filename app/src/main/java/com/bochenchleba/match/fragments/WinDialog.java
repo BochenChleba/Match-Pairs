@@ -14,7 +14,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.bochenchleba.match.Consts;
+import com.bochenchleba.match.Constants;
 import com.bochenchleba.match.R;
 
 public class WinDialog extends DialogFragment {
@@ -34,10 +34,11 @@ public class WinDialog extends DialogFragment {
         WinDialog frag = new WinDialog();
 
         Bundle args = new Bundle();
-        args.putLong(Consts.BUNDLE_ARGS_TIME, time);
-        args.putInt(Consts.BUNDLE_ARGS_ATTEMPTS, attempts);
-        args.putInt(Consts.BUNDLE_ARGS_FIELDS, fields);
-        args.putInt(Consts.PREFS_IMAGES_SET, id);
+
+        args.putLong(Constants.BUNDLE_ARGS_TIME, time);
+        args.putInt(Constants.BUNDLE_ARGS_ATTEMPTS, attempts);
+        args.putInt(Constants.BUNDLE_ARGS_FIELDS, fields);
+        args.putInt(Constants.PREFS_IMAGES_SET, id);
 
         frag.setArguments(args);
 
@@ -47,7 +48,9 @@ public class WinDialog extends DialogFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         gameFragment = (GameFragment) this.getParentFragment();
+
         getDialog().getWindow().requestFeature(Window.FEATURE_NO_TITLE);
 
         return inflater.inflate(R.layout.dialog_win, container);
@@ -57,9 +60,9 @@ public class WinDialog extends DialogFragment {
     public void onViewCreated(View view, @Nullable final Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        long elapsedTime = getArguments().getLong(Consts.BUNDLE_ARGS_TIME, 1);
-        int attempts = getArguments().getInt(Consts.BUNDLE_ARGS_ATTEMPTS, 1);
-        int fields = getArguments().getInt(Consts.BUNDLE_ARGS_FIELDS, 12);
+        long elapsedTime = getArguments().getLong(Constants.BUNDLE_ARGS_TIME, 1);
+        int attempts = getArguments().getInt(Constants.BUNDLE_ARGS_ATTEMPTS, 1);
+        int fields = getArguments().getInt(Constants.BUNDLE_ARGS_FIELDS, 12);
 
         TextView tvTime = (TextView) view.findViewById(R.id.tvTime_winDialog);
         TextView tvAttempts = (TextView) view.findViewById(R.id.tvClicks_winDialog);
@@ -74,21 +77,25 @@ public class WinDialog extends DialogFragment {
         prefs = getActivity().getSharedPreferences(PREFS, Context.MODE_PRIVATE);
 
         double elapsedTimeFloat = Float.parseFloat(String.valueOf(elapsedTime)) / 1000;
+
         int score = (int) ( (Math.pow(fields, Math.E)) / ( Math.sqrt(elapsedTimeFloat*attempts) ) *10);
+
         int highscore = prefs.getInt(PREFS_HIGHSCORE, 0);
 
-        if (score>highscore){
+        if (score > highscore){
 
             highscore = score;
 
             prefs.edit().putInt(PREFS_HIGHSCORE, highscore).apply();
 
             ivExclamation.setVisibility(View.VISIBLE);
+
             tvScore.setTextColor(ContextCompat.getColor(getContext(), R.color.green_text));
         }
 
         else{
             ivExclamation.setVisibility(View.INVISIBLE);
+
             tvScore.setTextColor(ContextCompat.getColor(getContext(), android.R.color.white));
         }
 

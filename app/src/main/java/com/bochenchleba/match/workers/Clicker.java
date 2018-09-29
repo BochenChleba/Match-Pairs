@@ -6,16 +6,11 @@ import android.view.animation.AccelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.ImageButton;
 
-import com.bochenchleba.match.Consts;
+import com.bochenchleba.match.Constants;
 import com.bochenchleba.match.MatchView;
 import com.bochenchleba.match.R;
 
 import java.lang.ref.WeakReference;
-
-/**
- * Created by bochenchleba on 15/10/17.
- */
-
 
 public class Clicker {
 
@@ -25,12 +20,15 @@ public class Clicker {
 
     private Activity activity;
 
-    private int imgsSetId;
+    private int imgSetId;
 
-    public Clicker(Activity activity, int imgsSetId){
+    public Clicker(Activity activity, int imgSetId){
+
         this.activity = activity;
+
         delayer = new Clicker.MyRunnable();
-        this.imgsSetId = imgsSetId;
+
+        this.imgSetId = imgSetId;
     }
 
     public void firstClick (final MatchView view){
@@ -38,18 +36,18 @@ public class Clicker {
         view.animate()
                 .scaleXBy(-1f)
                 .setInterpolator(new AccelerateInterpolator(0.75f))
-                .setDuration(Consts.ANIM_BUTTON_SCALE_DURATION)
+                .setDuration(Constants.ANIM_BUTTON_SCALE_DURATION)
                 .withEndAction(new Runnable() {
 
             @Override
             public void run() {
 
-                view.setBgrd(imgsSetId, Integer.parseInt(view.getTag().toString()));
+                view.setBgrd(imgSetId, Integer.parseInt(view.getTag().toString()));
 
                 view.animate()
                         .scaleXBy(1f)
                         .setInterpolator(new DecelerateInterpolator(0.75f))
-                        .setDuration(Consts.ANIM_BUTTON_SCALE_DURATION);
+                        .setDuration(Constants.ANIM_BUTTON_SCALE_DURATION);
             }
         });
 
@@ -63,34 +61,34 @@ public class Clicker {
         view.animate()
                 .scaleXBy(-1f)
                 .setInterpolator(new AccelerateInterpolator(0.75f))
-                .setDuration(Consts.ANIM_BUTTON_SCALE_DURATION)
+                .setDuration(Constants.ANIM_BUTTON_SCALE_DURATION)
                 .withEndAction(new Runnable() {
 
             @Override
             public void run() {
 
-                view.setBgrd(imgsSetId, Integer.parseInt(view.getTag().toString()));
+                view.setBgrd(imgSetId, Integer.parseInt(view.getTag().toString()));
 
                 view.animate()
                         .scaleXBy(1f)
                         .setInterpolator(new DecelerateInterpolator(0.75f))
-                        .setDuration(Consts.ANIM_BUTTON_SCALE_DURATION);
+                        .setDuration(Constants.ANIM_BUTTON_SCALE_DURATION);
 
-                if (view.getTag() == prevClickedBtn.getTag()){      //PARA
+                if (view.getTag() == prevClickedBtn.getTag()){      //MATCH
 
                     view.animate()
-                            .rotation(Consts.ANIM_BUTTON_ROTATE_FACTOR)
-                            .setDuration(Consts.ANIM_BUTTON_ROTATE_DURATION);
+                            .rotation(Constants.ANIM_BUTTON_ROTATE_FACTOR)
+                            .setDuration(Constants.ANIM_BUTTON_ROTATE_DURATION);
 
                     prevClickedBtn.animate()
-                            .rotation(Consts.ANIM_BUTTON_ROTATE_FACTOR)
-                            .setDuration(Consts.ANIM_BUTTON_ROTATE_DURATION);
+                            .rotation(Constants.ANIM_BUTTON_ROTATE_FACTOR)
+                            .setDuration(Constants.ANIM_BUTTON_ROTATE_DURATION);
                 }
             }
         });
 
 
-        if (view.getTag() == prevClickedBtn.getTag()){        // PARA
+        if (view.getTag() == prevClickedBtn.getTag()){        //MATCH
 
             view.setClickable(false);
             prevClickedBtn.setClickable(false);
@@ -98,11 +96,11 @@ public class Clicker {
             return true;
         }
 
-        else {                          // NIEPARA
+        else {                          // NOT MATCH
 
             delayer.setViews(activity, prevClickedBtn, view);
 
-            mHandler.postDelayed(delayer, Consts.INT_DELAY_OF_HIDINGS_FIELDS);
+            mHandler.postDelayed(delayer, Constants.INT_DELAY_OF_FIELD_HIDE);
 
             prevClickedBtn.setClickable(true);
 
@@ -120,14 +118,19 @@ public class Clicker {
         private ImageButton view2;
 
         public void setViews(Activity activity, ImageButton view1, ImageButton view2){
+
             mActivity = new WeakReference<>(activity);
+
             this.view1 = view1;
+
             this.view2 = view2;
         }
 
         @Override
         public void run() {
+
             Activity activity = mActivity.get();
+
             if (activity != null) {
                 view1.setImageResource(R.drawable.background_card);
                 view2.setImageResource(R.drawable.background_card);

@@ -12,7 +12,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 
-import com.bochenchleba.match.Consts;
+import com.bochenchleba.match.Constants;
 import com.bochenchleba.match.ImagesSetSpinnerAdapter;
 import com.bochenchleba.match.workers.Switcher;
 import com.bochenchleba.match.R;
@@ -41,9 +41,9 @@ public class MainMenuFragment extends Fragment {
         MainMenuFragment frag = new MainMenuFragment();
 
         Bundle args = new Bundle();
-        args.putInt(Consts.PREFS_IMAGES_SET, imgsSetId);
-        args.putInt(Consts.PREFS_FIELD_COUNT, fieldCount);
-        args.putInt(Consts.PREFS_FIELD_COUNT_POS, fieldCountPos);
+        args.putInt(Constants.PREFS_IMAGES_SET, imgsSetId);
+        args.putInt(Constants.PREFS_FIELD_COUNT, fieldCount);
+        args.putInt(Constants.PREFS_FIELD_COUNT_POS, fieldCountPos);
 
         frag.setArguments(args);
 
@@ -80,17 +80,17 @@ public class MainMenuFragment extends Fragment {
             @Override
             public void onClick(final View view) {
 
-                linearLayout.animate().translationXBy(-1 * Consts.ANIM_MENU_ELEMENT_TRANSITION_DISTANCE)
-                        .setDuration(Consts.ANIM_MENU_ELEMENT_TRANSITION_DURATION);
+                linearLayout.animate().translationXBy(-1 * Constants.ANIM_MENU_ELEMENT_TRANSITION_DISTANCE)
+                        .setDuration(Constants.ANIM_MENU_ELEMENT_TRANSITION_DURATION);
 
-                view.animate().translationXBy(Consts.ANIM_MENU_ELEMENT_TRANSITION_DISTANCE)
-                        .setDuration(Consts.ANIM_MENU_ELEMENT_TRANSITION_DURATION)
+                view.animate().translationXBy(Constants.ANIM_MENU_ELEMENT_TRANSITION_DISTANCE)
+                        .setDuration(Constants.ANIM_MENU_ELEMENT_TRANSITION_DURATION)
                         .withEndAction(new Runnable() {
                     @Override
                     public void run() {
 
-                        view.animate().translationXBy(-1 * Consts.ANIM_MENU_ELEMENT_TRANSITION_DISTANCE);
-                        linearLayout.animate().translationXBy(Consts.ANIM_MENU_ELEMENT_TRANSITION_DISTANCE);
+                        view.animate().translationXBy(-1 * Constants.ANIM_MENU_ELEMENT_TRANSITION_DISTANCE);
+                        linearLayout.animate().translationXBy(Constants.ANIM_MENU_ELEMENT_TRANSITION_DISTANCE);
                         listener.onNewGamePressed();
                     }
                 });
@@ -106,7 +106,7 @@ public class MainMenuFragment extends Fragment {
         imagesSetSpinner = mainView.findViewById(R.id.spinner_images_set);
         imagesSetSpinner.setAdapter(imagesSetAdapter);
         imagesSetSpinner.setOnItemSelectedListener(imagesSetItemSelectedListener);
-        imagesSetSpinner.setSelection(getArguments().getInt(Consts.PREFS_IMAGES_SET));
+        imagesSetSpinner.setSelection(getArguments().getInt(Constants.PREFS_IMAGES_SET));
 
         fieldCountSpinner = mainView.findViewById(R.id.spinner_field_count);
         fieldCountSpinner.setOnItemSelectedListener(fieldCountItemSelectedListener);

@@ -4,10 +4,6 @@ import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
-/**
- * Created by bochenchleba on 09/10/17.
- */
-
 public class BitmapResizer {
     public static Bitmap decodeSampledBitmapFromResource(Resources res, int resId) {
 

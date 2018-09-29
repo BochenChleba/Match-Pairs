@@ -21,7 +21,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.bochenchleba.match.Consts;
+import com.bochenchleba.match.Constants;
 import com.bochenchleba.match.MatchView;
 import com.bochenchleba.match.R;
 import com.bochenchleba.match.workers.Switcher;
@@ -32,12 +32,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
 
-/**
- * Created by bochenchleba on 10/3/17.
- */
-
-
-
 public class GameFragment extends Fragment implements SoundPool.OnLoadCompleteListener {
 
     private int fieldCount = 30;
@@ -45,10 +39,10 @@ public class GameFragment extends Fragment implements SoundPool.OnLoadCompleteLi
     private int remainingFields;
 
     private Boolean clicked = false;
-    private int attempts =0;
-    private int matches = 0;
 
-    private long prevClickTime =0;
+    private int attempts, matches = 0;
+
+    private long prevClickTime = 0;
 
     private ArrayList<Integer> idList = new ArrayList<>();
 
@@ -84,12 +78,13 @@ public class GameFragment extends Fragment implements SoundPool.OnLoadCompleteLi
     }
 
     public static GameFragment newInstance(int imgsSetId, int fieldCount, boolean soundOn) {
+
         GameFragment frag = new GameFragment();
         Bundle args = new Bundle();
 
-        args.putInt(Consts.PREFS_IMAGES_SET, imgsSetId);
-        args.putInt(Consts.PREFS_FIELD_COUNT, fieldCount);
-        args.putBoolean(Consts.PREFS_FIELD_SOUND, soundOn);
+        args.putInt(Constants.PREFS_IMAGES_SET, imgsSetId);
+        args.putInt(Constants.PREFS_FIELD_COUNT, fieldCount);
+        args.putBoolean(Constants.PREFS_FIELD_SOUND, soundOn);
         frag.setArguments(args);
 
         return frag;
@@ -110,6 +105,7 @@ public class GameFragment extends Fragment implements SoundPool.OnLoadCompleteLi
 
     public void onPause(){
         super.onPause();
+
         isRunning = false;
 
         if (actionBar!=null) {
@@ -117,13 +113,16 @@ public class GameFragment extends Fragment implements SoundPool.OnLoadCompleteLi
             actionBar.setDisplayShowTitleEnabled(true);
             actionBarLinearLayout.setVisibility(View.GONE);
         }
+
         timerHandler.removeCallbacks(timerRunnable);
+
         soundPool.release();
         soundPool = null;
     }
 
     public void onResume(){
         super.onResume();
+
         isRunning = true;
 
         setSoundPool();
@@ -133,6 +132,7 @@ public class GameFragment extends Fragment implements SoundPool.OnLoadCompleteLi
             actionBar.setDisplayShowTitleEnabled(false);
             actionBarLinearLayout.setVisibility(View.VISIBLE);
         }
+
         timerRunnable.run();
     }
 
@@ -152,13 +152,13 @@ public class GameFragment extends Fragment implements SoundPool.OnLoadCompleteLi
 
         getScreenHeight();
 
-        int imgsSetId = getArguments().getInt(Consts.PREFS_IMAGES_SET);
-        fieldCount = getArguments().getInt(Consts.PREFS_FIELD_COUNT);
-        soundOn = getArguments().getBoolean(Consts.PREFS_FIELD_SOUND);
+        int imgSetId = getArguments().getInt(Constants.PREFS_IMAGES_SET);
+        fieldCount = getArguments().getInt(Constants.PREFS_FIELD_COUNT);
+        soundOn = getArguments().getBoolean(Constants.PREFS_FIELD_SOUND);
 
-        drawablesRange = Switcher.getDrawablesRange(imgsSetId);
+        drawablesRange = Switcher.getDrawablesRange(imgSetId);
 
-        clicker = new Clicker(getActivity(), imgsSetId);
+        clicker = new Clicker(getActivity(), imgSetId);
 
         mainView = Switcher.inflateMainView(fieldCount, inflater, container);
 
@@ -177,6 +177,7 @@ public class GameFragment extends Fragment implements SoundPool.OnLoadCompleteLi
         tvToolbarMatches = activity.findViewById(R.id.tv_toolbar_matches);
 
         if (mainLinearLayout == null){
+
             try{
                 Button btn = mainView.findViewById(R.id.layout0_btn_back);
                 btn.setOnClickListener(new View.OnClickListener() {
@@ -187,6 +188,7 @@ public class GameFragment extends Fragment implements SoundPool.OnLoadCompleteLi
                     }
                 });
             }
+
             catch (Exception e){
                 Toast.makeText(getContext(), R.string.error_inflating_layout + e.getMessage(), Toast.LENGTH_LONG).show();
             }
@@ -210,7 +212,6 @@ public class GameFragment extends Fragment implements SoundPool.OnLoadCompleteLi
         createRandomList();
         setBtns();
 
-        System.gc();
         timerHandler.postDelayed(timerRunnable, 0);
 
         if (musicBackgroundLoaded){
@@ -253,9 +254,13 @@ public class GameFragment extends Fragment implements SoundPool.OnLoadCompleteLi
     }
 
     public void showWinDialog(){
+
         FragmentManager fm = getChildFragmentManager();
+
         timerHandler.removeCallbacks(timerRunnable);
+
         WinDialog dialog = WinDialog.newInstance(elapsedTime,attempts,fieldCount, getId());
+
         dialog.show(fm, "");
 
     }
@@ -268,6 +273,7 @@ public class GameFragment extends Fragment implements SoundPool.OnLoadCompleteLi
             idList.add(number);
             idList.add(number);
         }
+
         else
             addNumberToArray(random);
     }
@@ -281,8 +287,11 @@ public class GameFragment extends Fragment implements SoundPool.OnLoadCompleteLi
     }
 
     private void setSoundPool(){
+
         soundPool = new SoundPool(2, AudioManager.STREAM_MUSIC, 0);
+
         soundPool.setOnLoadCompleteListener(this);
+
         musicBackgroundId = soundPool.load(getContext(), R.raw.music_background, 2);
         soundBtnClickId = soundPool.load(getContext(), R.raw.sound_btn_click, 1);
         soundWinId = soundPool.load(getContext(), R.raw.sound_win, 1);
@@ -296,6 +305,7 @@ public class GameFragment extends Fragment implements SoundPool.OnLoadCompleteLi
                 soundPool.autoResume();
                 return true;
             }
+
             else
                 return false;
         }
@@ -306,6 +316,7 @@ public class GameFragment extends Fragment implements SoundPool.OnLoadCompleteLi
                 soundPool.autoPause();
                 return true;
             }
+
             else
                 return false;
         }
@@ -320,10 +331,12 @@ public class GameFragment extends Fragment implements SoundPool.OnLoadCompleteLi
 
                 long deltaTime = System.currentTimeMillis() - prevClickTime;
 
-                if (deltaTime > Consts.INT_DELAY_OF_HIDINGS_FIELDS){
+                if (deltaTime > Constants.INT_DELAY_OF_FIELD_HIDE){
 
                     clicker.firstClick((MatchView)view);
+
                     clicked = true;
+
                     attempts++;
 
                     if ((soundBtnClickLoaded) && (soundOn))
@@ -336,6 +349,7 @@ public class GameFragment extends Fragment implements SoundPool.OnLoadCompleteLi
                 Boolean match = clicker.secondClick((MatchView) view);
 
                 clicked = false;
+
                 attempts++;
 
                 if (match){
@@ -365,6 +379,7 @@ public class GameFragment extends Fragment implements SoundPool.OnLoadCompleteLi
     };
 
     Handler timerHandler = new Handler();
+
     Runnable timerRunnable = new Runnable() {
 
         @Override
@@ -373,11 +388,13 @@ public class GameFragment extends Fragment implements SoundPool.OnLoadCompleteLi
             long currentTime = System.currentTimeMillis();
 
             if (isRunning){
+
                 elapsedTime += currentTime - previousTime;
+
                 double elapsedTimeFloat = Float.parseFloat(String.valueOf(elapsedTime)) / 1000;
 
                 if (isAdded())
-                    tvToolbarTime.setText(getString(R.string.toolbar_tv_time, elapsedTimeFloat)); //ToDo post update 1.12
+                    tvToolbarTime.setText(getString(R.string.toolbar_tv_time, elapsedTimeFloat));
             }
 
             previousTime = currentTime;
@@ -390,17 +407,24 @@ public class GameFragment extends Fragment implements SoundPool.OnLoadCompleteLi
 
     @Override
     public void onLoadComplete(SoundPool soundPool, int id, int status) {
+
         if (status==0){
+
             switch (id){
+
                 case 1:
                     musicBackgroundLoaded = true;
+
                     musicBackgroundStreamId = soundPool.play(musicBackgroundId, 0.15f,0.15f, 2, -1, 1);
+
                     if (!soundOn)
                         soundPool.autoPause();
                     break;
+
                 case 2:
                     soundBtnClickLoaded = true;
                     break;
+
                 case 3:
                     soundWinLoaded = true;
                     break;

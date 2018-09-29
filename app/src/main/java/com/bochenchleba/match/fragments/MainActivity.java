@@ -17,7 +17,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.TextView;
 
-import com.bochenchleba.match.Consts;
+import com.bochenchleba.match.Constants;
 import com.bochenchleba.match.R;
 
 
@@ -48,12 +48,12 @@ public class MainActivity extends AppCompatActivity implements MainMenuFragment.
 
         returnToMenu();
 
-        preferences = this.getSharedPreferences(Consts.PREFS_NAME, Context.MODE_PRIVATE);
+        preferences = this.getSharedPreferences(Constants.PREFS_NAME, Context.MODE_PRIVATE);
 
         commitFragmentTransaction(MainMenuFragment.newInstance(
-                preferences.getInt(Consts.PREFS_IMAGES_SET,0),
-                preferences.getInt(Consts.PREFS_FIELD_COUNT,12),
-                preferences.getInt(Consts.PREFS_FIELD_COUNT_POS,0)
+                preferences.getInt(Constants.PREFS_IMAGES_SET,0),
+                preferences.getInt(Constants.PREFS_FIELD_COUNT,12),
+                preferences.getInt(Constants.PREFS_FIELD_COUNT_POS,0)
                 ),
                 false);
     }
@@ -115,11 +115,11 @@ public class MainActivity extends AppCompatActivity implements MainMenuFragment.
         alertDialogBuilder.setTitle(R.string.toolbar_info);
 
         tv = new TextView(this);
+
         tv.setMovementMethod(LinkMovementMethod.getInstance());
         tv.setText(R.string.info_dialog_message);
         tv.setTextSize(20);
         tv.setPadding(30,24,30,20);
-
         tv.setLinksClickable(true);
 
         alertDialogBuilder.setView(tv);
@@ -134,8 +134,8 @@ public class MainActivity extends AppCompatActivity implements MainMenuFragment.
         gameFragment = null;
 
         gameFragment = GameFragment.newInstance(
-                preferences.getInt(Consts.PREFS_IMAGES_SET, Consts.IMGS_SET_ID_ANIMALS),
-                preferences.getInt(Consts.PREFS_FIELD_COUNT,12),
+                preferences.getInt(Constants.PREFS_IMAGES_SET, Constants.IMG_SET_ID_ANIMALS),
+                preferences.getInt(Constants.PREFS_FIELD_COUNT,12),
                 soundOn);
 
         commitFragmentTransaction(gameFragment, true);
@@ -143,13 +143,13 @@ public class MainActivity extends AppCompatActivity implements MainMenuFragment.
 
     @Override
     public void onImagesSetSelected(int pos) {
-        preferences.edit().putInt(Consts.PREFS_IMAGES_SET, pos).apply();
+        preferences.edit().putInt(Constants.PREFS_IMAGES_SET, pos).apply();
     }
 
     @Override
     public void onFieldCountSelected(int fieldCount, int pos) {
-        preferences.edit().putInt(Consts.PREFS_FIELD_COUNT, fieldCount).apply();
-        preferences.edit().putInt(Consts.PREFS_FIELD_COUNT_POS, pos).apply();
+        preferences.edit().putInt(Constants.PREFS_FIELD_COUNT, fieldCount).apply();
+        preferences.edit().putInt(Constants.PREFS_FIELD_COUNT_POS, pos).apply();
     }
 
     public static void returnToMenu(){
