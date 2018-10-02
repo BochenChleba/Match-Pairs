@@ -6,7 +6,7 @@ Match Pairs is a simple game designed for android devices. Your goal is to uncov
 
 Google Play link: https://play.google.com/store/apps/details?id=com.bochenchleba.match
 
-Video presentation: 
+Video presentation: https://youtu.be/n8PyMFRxPpM
 
 Credits:
 Images used in this application are downloaded from www.flaticon.com
